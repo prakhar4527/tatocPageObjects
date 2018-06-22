@@ -64,8 +64,18 @@ public class NewTest {
   {
 	  PopUpWindows popup = new PopUpWindows(driver) ;
 	  popup.checkLaunchWindow();
+	  String expectedUrl = "http://10.0.1.86/tatoc/basic/windows/popup";
+	  Assert.assertEquals(expectedUrl, driver.getCurrentUrl(), "Didn't navigate to correct webpage");
 	  popup.checkProceedAfterSubmittingName();
-	  String expectedUrl = "http://10.0.1.86/tatoc/basic/windows";
-		Assert.assertEquals(expectedUrl, driver.getCurrentUrl(), "Didn't navigate to correct webpage");
+	  String expectedUrl1 = "http://10.0.1.86/tatoc/basic/cookie";
+	  Assert.assertEquals(expectedUrl1, driver.getCurrentUrl(), "Didn't navigate to correct webpage");
+  }
+  @Test(priority=6)
+  public void CheckCookieHandling()
+  {
+	  CookieHandling cookie=new CookieHandling(driver);
+	  cookie.checkProceedAfterTokenGeneration();
+	  String expectedUrl1 = "http://10.0.1.86/tatoc/end";
+		Assert.assertEquals(expectedUrl1, driver.getCurrentUrl(), "Didn't navigate to correct webpage");
   }
 }
