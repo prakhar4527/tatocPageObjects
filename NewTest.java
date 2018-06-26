@@ -14,7 +14,6 @@ public class NewTest {
 	WebDriver driver;
 	welcomePage page1;
 	GridGate grid;
-	FrameDungeon fd;
   @BeforeTest
   public void launchBrowser()
   {
@@ -24,14 +23,12 @@ public class NewTest {
   }
   @AfterClass
   public void closeBrowser(){
-      //driver.quit();
+      driver.quit();
   }
   @Test(priority=1)
   public void checkBasicCourseLink()
   {
 	  page1.OnClickBasicCourse();
-	  String expectedUrl = "http://10.0.1.86/tatoc/basic/grid/gate";
-		Assert.assertEquals(expectedUrl, driver.getCurrentUrl(), "Didn't navigate to correct webpage");
   }
   @Test(priority=2)
   public void checkGreenBox()
